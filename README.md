@@ -1,7 +1,4 @@
 # cplusplus
-C++ code practices
-<<<<<<< HEAD
-This is my first GutHub try.
-=======
+This repository purely a collection for my C++ practoce codes. This is the point where my new career for programmer starts.
+All the best.
 
->>>>>>> refs/remotes/origin/master
