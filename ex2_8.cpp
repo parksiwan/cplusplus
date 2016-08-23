@@ -6,9 +6,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <algorithm>
+#include <algorithm>  
 using namespace std;
-
+ 
 int StringToTenBaseInteger(string, int);
 string  ConvertOtherBaseString(int, int);
 
