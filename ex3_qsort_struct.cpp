@@ -6,7 +6,8 @@ using namespace std;
 struct student {
 	int grade;
 	int studentID;
-	string name;
+	//string name;
+	char name[15]; //must be a fixed size
 };
 
 const int ARRAY_SIZE = 10;
@@ -24,29 +25,31 @@ student studentArray[ARRAY_SIZE] = {
 };
 
 int GradeCompare(const void* a, const void* b) {
-	int student1 = ((const struct student *)a)->grade;    
-    int student2 = ((const struct student *)b)->grade;
-
-    return( student1 - student2 );
+    const struct student *st1 = (struct student *)a;
+    const struct student *st2 = (struct student *)b;
+    
+    return( st1->grade - st2->grade );
 }
 
 int IdCompare(const void* a, const void* b) {
-	int student1 = ((const struct student *)a)->studentID;    
-    int student2 = ((const struct student *)b)->studentID;
-
-    return( student1 - student2 );
+    const struct student *st1 = (struct student *)a;
+    const struct student *st2 = (struct student *)b;
+	
+    return( st1->studentID - st2->studentID );
 }
 
 int main(int argc, char **argv) {
 	size_t structs_len = sizeof(studentArray) / sizeof(struct student);
-	//size_t structs_len = sizeof(studentArray);
-	//qsort(studentArray, structs_len, sizeof(struct student), GradeCompare);
-	qsort(studentArray, structs_len, sizeof(struct student), IdCompare);
 	
+	qsort(studentArray, structs_len, sizeof(struct student), GradeCompare);
 	for (int i = 0; i < ARRAY_SIZE; i++)
 		cout << studentArray[i].grade << '-' << studentArray[i].studentID 
 			<< '-' << studentArray[i].name << endl;
 		
+	qsort(studentArray, structs_len, sizeof(struct student), IdCompare);
+	for (int i = 0; i < ARRAY_SIZE; i++)
+		cout << studentArray[i].grade << '-' << studentArray[i].studentID 
+			<< '-' << studentArray[i].name << endl;
 	cout << endl;
 		
 	return 0;
