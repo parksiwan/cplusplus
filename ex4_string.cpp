@@ -1,4 +1,4 @@
-//Practice of pointer using string operation including append and concatenation
+//Variable-length string manipulation
 
 #include <iostream>
 
