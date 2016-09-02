@@ -1,3 +1,6 @@
+//function replaceString (source, target, replaceText)
+//The function replaces every occurrence of target in source with replaceText
+
 #include <iostream>
 
 using namespace std;
