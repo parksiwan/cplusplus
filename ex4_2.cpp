@@ -21,7 +21,7 @@ int main() {
 	a[0] = 't'; a[1] = 'e'; a[2] = 's'; a[3] = 't'; a[4] = 0;
 
 	cout << "Original string of a is " << a << endl;
-	cout << substring(a, 1, 2) << " is a Substring of a" << endl;
+	cout << subString(a, 1, 2) << " is a Substring of a" << endl;
 
 	system("pause");
 	return 0;
