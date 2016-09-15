@@ -9,7 +9,8 @@
 #include <iostream>
 using namespace std;
 
-struct listNode {
+struct listNode 
+{
 	char oneChar;
 	listNode* next;
 };
@@ -17,16 +18,19 @@ struct listNode {
 typedef listNode* listString;
 
 
-char characterAt(listString str, int position) {
+char characterAt(listString str, int position) 
+{
 	if (str == NULL) return 0;
 
 	int count = 1;
 	listNode* loopPtr = str;
 
-	while (loopPtr != NULL) {
+	while (loopPtr != NULL) 
+	{
 		if (position == count)
 			return loopPtr->oneChar;
-		else {
+		else 
+		{
 			count++;
 			loopPtr = loopPtr->next;
 		}
@@ -35,7 +39,8 @@ char characterAt(listString str, int position) {
 }
 
 
-void append(listString& str, char c) {
+void append(listString& str, char c) 
+{
 	if (str == NULL) return;
 
 	listNode* loopPtr = str;
@@ -50,7 +55,8 @@ void append(listString& str, char c) {
 }
 
 
-void concatenate(listString& s1, listString& s2) {
+void concatenate(listString& s1, listString& s2) 
+{
 	if ((s1 == NULL) || (s2 == NULL)) return;
 
 	listNode* ptr1 = s1;
@@ -74,7 +80,8 @@ void concatenate(listString& s1, listString& s2) {
 }
 
 
-void removeChars(listString& str, int position, int length) {
+void removeChars(listString& str, int position, int length) 
+{
 	if (str == NULL) return;
 
 	listNode* firstNode = str;
@@ -82,17 +89,22 @@ void removeChars(listString& str, int position, int length) {
 	listNode* prevPtr = str;
 	
 	int count = 1, numberChar = 1;
-	while (loopPtr != NULL) {
-		if (count == position) {
-			while (numberChar <= length) {
-				if (loopPtr == prevPtr) {    //Removing starts at first node
+	while (loopPtr != NULL) 
+	{
+		if (count == position) 
+		{
+			while (numberChar <= length) 
+			{
+				if (loopPtr == prevPtr)     //Removing starts at first node
+				{
 					prevPtr = prevPtr->next;
 					delete(loopPtr);
 					loopPtr = prevPtr;
 					str = loopPtr;    //Change first pointer to modified address
 					numberChar++;
 				}
-				else {
+				else 
+				{
 					prevPtr->next = loopPtr->next;
 					delete(loopPtr);
 					loopPtr = prevPtr->next;
@@ -101,7 +113,8 @@ void removeChars(listString& str, int position, int length) {
 			}
      		return;
 		}
-		else {
+		else 
+		{
 			prevPtr = loopPtr;
 			loopPtr = loopPtr->next;
 			count++;
@@ -110,7 +123,8 @@ void removeChars(listString& str, int position, int length) {
 }
 
 
-int main() {
+int main() 
+{
 	listString str1, str2;
 
 	listNode* node1 = new listNode;
@@ -150,7 +164,8 @@ int main() {
 	concatenate(str1, str2);
 
 	listNode* loopPtr = str1;
-	while (loopPtr != NULL) {
+	while (loopPtr != NULL) 
+	{
 		cout << loopPtr->oneChar;
 		loopPtr = loopPtr->next;
 	}
@@ -159,7 +174,8 @@ int main() {
 	removeChars(str1, 1, 2);
 	
 	listNode* Ptr = str1;
-	while (Ptr != NULL) {
+	while (Ptr != NULL) 
+	{
 		cout << Ptr->oneChar;
 		Ptr = Ptr->next;
 	}
