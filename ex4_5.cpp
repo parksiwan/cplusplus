@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-struct listNode {
+struct listNode 
+{
 	int studentNum;
 	int grade;
 	listNode* next;
@@ -9,7 +10,8 @@ struct listNode {
 typedef listNode* studentCollection;
 
 
-void addRecord(studentCollection& sc, int stuNum, int gr) {
+void addRecord(studentCollection& sc, int stuNum, int gr) 
+{
 	listNode* newNode = new listNode;
 
 	newNode->studentNum = stuNum;
@@ -19,7 +21,8 @@ void addRecord(studentCollection& sc, int stuNum, int gr) {
 }
 
 
-double averageRecord(studentCollection sc) {
+double averageRecord(studentCollection sc) 
+{
 	int count = 0;
 	double sum = 0;
 
@@ -27,7 +30,8 @@ double averageRecord(studentCollection sc) {
 		return 0;
 
 	listNode* loopPtr = sc;
-	while (loopPtr != NULL) {
+	while (loopPtr != NULL) 
+	{
 		sum += loopPtr->grade;
 		count++;
 		loopPtr = loopPtr->next;
@@ -37,36 +41,43 @@ double averageRecord(studentCollection sc) {
 }
 
 
-void displayRecord(studentCollection sc) {
+void displayRecord(studentCollection sc) 
+{
 	if (sc == NULL)
 		return;
 
 	listNode* loopPtr = sc;
-	while (loopPtr != NULL) {
+	while (loopPtr != NULL) 
+	{
 		cout << "\t" << loopPtr->studentNum << "\t" << loopPtr->grade << endl;
 		loopPtr = loopPtr->next;
 	}
 }
 
 
-void removeRecord(studentCollection& sc, int stuNum) {
+void removeRecord(studentCollection& sc, int stuNum) 
+{
 	if (sc == NULL)
 		return;
 
 	listNode* loopPtr = sc;
 	listNode* prevPtr = sc;
-	if (sc->studentNum == stuNum) {
+	if (sc->studentNum == stuNum) 
+	{
 		sc = loopPtr->next;
 		delete(loopPtr);
 		return;
 	}
-	while (loopPtr != NULL) {
-		if (loopPtr->studentNum == stuNum) {
+	while (loopPtr != NULL) 
+	{
+		if (loopPtr->studentNum == stuNum) 
+		{
 			prevPtr->next = loopPtr->next;
 			delete(loopPtr);
 			return;
 		}
-		else {
+		else 
+		{
 			prevPtr = loopPtr;
 			loopPtr = loopPtr->next;
 		}
@@ -75,7 +86,8 @@ void removeRecord(studentCollection& sc, int stuNum) {
 }
 
 
-int main() {
+int main() 
+{
 	studentCollection sc;
 	listNode* node1 = new listNode;
 	node1->studentNum = 1001;
