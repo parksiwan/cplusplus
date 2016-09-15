@@ -50,7 +50,8 @@ arrayString replaceString(arrayString& source, arrayString target, arrayString r
 		{
 			if (target[j] == source[j + i]) 
 				count++;
-			else {
+			else 
+			{
 				count = 0;
 				break;
 			}
