@@ -1,24 +1,36 @@
 #include <iostream>
 
 
-class Foo {
+class Foo 
+{
 public:
-    Foo() {
+    Foo() 
+    {
         this->value = 0;
     }
-    Foo get_copy() {
+    
+    Foo get_copy() 
+    {
         return *this;
     }
-    Foo& get_copy_as_reference() {
+    
+    Foo& get_copy_as_reference() 
+    {
         return *this;
     }
-    Foo* get_pointer() {
+    
+    Foo* get_pointer() 
+    {
         return this;
     }
-    void increment() {
+    
+    void increment() 
+    {
         this->value++;
     }
-    void print_value() {
+    
+    void print_value() 
+    {
         std::cout << this->value << std::endl;
     }
 private:
@@ -26,7 +38,8 @@ private:
 };
 
 
-int main() {
+int main() 
+{
     Foo foo;
 
     foo.increment();
