@@ -78,34 +78,37 @@ int StringToTenBaseInteger(string n, int bs)
 	return total;
 }
 
-string  ConvertOtherBaseString(int number, int base) {
+string  ConvertOtherBaseString(int number, int base) 
+{
 	stringstream ss;
 	string str;
 	int dividend = number, remainder = 0;
 
-	while (dividend != 0) {
+	while (dividend != 0) 
+	{
 		remainder = dividend % base;
-		switch (remainder) {
-		case 10 :
-			ss << 'A';
-			break;
-		case 11 :
-			ss << 'B';
-			break;
-		case 12 :
-			ss << 'C';
-			break;
-		case 13 :
-			ss << 'D';
-			break;
-		case 14 :
-			ss << 'E';
-			break;
-		case 15 :
-			ss << 'F';
-			break;
-		default :
-			ss << remainder;
+		switch (remainder) 
+		{
+			case 10 :
+				ss << 'A';
+				break;
+			case 11 :
+				ss << 'B';
+				break;
+			case 12 :
+				ss << 'C';
+				break;
+			case 13 :
+				ss << 'D';
+				break;
+			case 14 :
+				ss << 'E';
+				break;
+			case 15 :
+				ss << 'F';
+				break;
+			default :
+				ss << remainder;
 		}
 		dividend = dividend / base;
 	}
