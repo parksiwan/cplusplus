@@ -12,7 +12,8 @@ using namespace std;
 int StringToTenBaseInteger(string, int);
 string  ConvertOtherBaseString(int, int);
 
-int main() {
+int main() 
+{
 	string str_number, converted_number;
 	int src_base, dest_base, int_number;
 
@@ -35,34 +36,37 @@ int main() {
 }
 
 
-int StringToTenBaseInteger(string n, int bs) {
+int StringToTenBaseInteger(string n, int bs) 
+{
 	int i = 0, j;
 	int dig;
 
 	j = n.length() - 1;
 	int total = 0;
-	while (i < n.length()) {
-		switch (n[i]) {
-		case 'A':
-			dig = 10;
-			break;
-		case 'B':
-			dig = 11;
-			break;
-		case 'C':
-			dig = 12;
-			break;
-		case 'D':
-			dig = 13;
-			break;
-		case 'E':
-			dig = 14;
-			break;
-		case 'F':
-			dig = 15;
-			break;
-		default:
-			dig = n[i] - '0';
+	while (i < n.length()) 
+	{
+		switch (n[i]) 
+		{
+			case 'A':
+				dig = 10;
+				break;
+			case 'B':
+				dig = 11;
+				break;
+			case 'C':
+				dig = 12;
+				break;
+			case 'D':
+				dig = 13;
+				break;
+			case 'E':
+				dig = 14;
+				break;
+			case 'F':
+				dig = 15;
+				break;
+			default:
+				dig = n[i] - '0';
 		}
 		for (int k = 0; k < j; k++)
 			dig = dig * bs;
@@ -71,7 +75,6 @@ int StringToTenBaseInteger(string n, int bs) {
 		i++;
 		j--;
 	}
-
 	return total;
 }
 
