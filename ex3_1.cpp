@@ -3,7 +3,8 @@
 #include <string>
 using namespace std;
 
-struct student {
+struct student 
+{
 	int grade;
 	int studentID;
 	//string name;
@@ -11,7 +12,8 @@ struct student {
 };
 
 const int ARRAY_SIZE = 10;
-student studentArray[ARRAY_SIZE] = {
+student studentArray[ARRAY_SIZE] = 
+{
 	{87, 10001, "Fred"},
 	{28, 10002, "Tom"},
 	{100, 10003, "Alistair"},
@@ -24,21 +26,24 @@ student studentArray[ARRAY_SIZE] = {
 	{68, 10010, "Veronica"}
 };
 
-int GradeCompare(const void* a, const void* b) {
+int GradeCompare(const void* a, const void* b) 
+{
     const struct student *st1 = (struct student *)a;
     const struct student *st2 = (struct student *)b;
     
     return( st1->grade - st2->grade );
 }
 
-int IdCompare(const void* a, const void* b) {
+int IdCompare(const void* a, const void* b) 
+{
     const struct student *st1 = (struct student *)a;
     const struct student *st2 = (struct student *)b;
 	
     return( st1->studentID - st2->studentID );
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
 	size_t structs_len = sizeof(studentArray) / sizeof(struct student);
 	
 	qsort(studentArray, structs_len, sizeof(struct student), GradeCompare);
