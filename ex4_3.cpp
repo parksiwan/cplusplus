@@ -12,7 +12,8 @@ arrayString subString(arrayString, int, int);
 arrayString replaceString(arrayString&, arrayString, arrayString);
 void concatenate(arrayString&, arrayString);
 
-int length(arrayString s) {
+int length(arrayString s) 
+{
 	int count = 0;
 
 	while (s[count] != 0)
@@ -22,7 +23,8 @@ int length(arrayString s) {
 }
 
 
-arrayString subString(arrayString s1, int startPoint, int length) {
+arrayString subString(arrayString s1, int startPoint, int length) 
+{
 	arrayString newS = new char[length + 1];
 
 	for (int i = 0; i < length; i++)
@@ -33,7 +35,8 @@ arrayString subString(arrayString s1, int startPoint, int length) {
 }
 
 
-arrayString replaceString(arrayString& source, arrayString target, arrayString replaceText) {
+arrayString replaceString(arrayString& source, arrayString target, arrayString replaceText) 
+{
 	int sourceLength = length(source);
 	int targetLength = length(target);
 	int count = 0, sp = 0;
@@ -41,17 +44,19 @@ arrayString replaceString(arrayString& source, arrayString target, arrayString r
 
 	tempS[0] = NULL;
 	int i = 0;
-	while (source[i] != NULL) {
-		for (int j = 0; j < targetLength; j++) {
-			if (target[j] == source[j + i]) {
+	while (source[i] != NULL) 
+	{
+		for (int j = 0; j < targetLength; j++) 
+		{
+			if (target[j] == source[j + i]) 
 				count++;
-			}
 			else {
 				count = 0;
 				break;
 			}
 		}
-		if (count == targetLength) {
+		if (count == targetLength) 
+		{
 			concatenate(tempS, subString(source, sp, i - sp));	
 			concatenate(tempS, replaceText);
 			sp = i + targetLength;
@@ -69,7 +74,8 @@ arrayString replaceString(arrayString& source, arrayString target, arrayString r
 }
 
 
-void concatenate(arrayString& s1, arrayString s2) {
+void concatenate(arrayString& s1, arrayString s2) 
+{
 	int s1_OldLength = length(s1);
 	int s2_Length = length(s2);
 	int s1_NewLength = s1_OldLength + s2_Length;
@@ -88,7 +94,8 @@ void concatenate(arrayString& s1, arrayString s2) {
 }
 
 
-int main() {
+int main() 
+{
 	arrayString a = new char[10];
 	a = "absdkrabm\0";
 
