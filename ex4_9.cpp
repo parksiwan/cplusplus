@@ -11,26 +11,31 @@
 #include <iostream>
 using namespace std;
 
-struct listNode {
+struct listNode 
+{
 	int oneInteger;
 	listNode* next;
 };
 
 typedef listNode* listInteger;
 
-void intToList(listInteger& listInt, int number) {
+void intToList(listInteger& listInt, int number) 
+{
 	int dividend = number, remainder = 0;
 
-	while (dividend != 0) {
+	while (dividend != 0) 
+	{
 		remainder = dividend % 10;
 		dividend = dividend / 10;
-		if (listInt == NULL) {
+		if (listInt == NULL) 
+		{
 			listNode* newNode = new listNode;
 			newNode->oneInteger = remainder;
 			newNode->next = NULL;
 			listInt = newNode;
 		}
-		else {
+		else 
+		{
 			listNode* loopPtr = listInt;
 			while (loopPtr->next != NULL)
 				loopPtr = loopPtr->next;
@@ -44,14 +49,17 @@ void intToList(listInteger& listInt, int number) {
 }
 
 
-void addNode(listInteger& listInt, int num) {
-	if (listInt == NULL) {
+void addNode(listInteger& listInt, int num) 
+{
+	if (listInt == NULL) 
+	{
 		listNode* newNode = new listNode;
 		newNode->oneInteger = num;
 		newNode->next = NULL;
 		listInt = newNode;
 	}
-	else {
+	else 
+	{
 		listNode* loopPtr = listInt;
 		while (loopPtr->next != NULL)
 			loopPtr = loopPtr->next;
@@ -64,9 +72,11 @@ void addNode(listInteger& listInt, int num) {
 }
 
 
-listInteger addList(listInteger a, listInteger b) {
+listInteger addList(listInteger a, listInteger b) 
+{
 	if (a == NULL && b == NULL) return NULL;
-	else {
+	else 
+	{
 		if (a == NULL) return b;
 		if (b == NULL) return a;
 	}
@@ -76,7 +86,8 @@ listInteger addList(listInteger a, listInteger b) {
 	listInteger sumPtr = NULL;
 	int carry = 0, product = 0, remainder = 0;
 
-	while (aLoopPtr != NULL || bLoopPtr != NULL) {
+	while (aLoopPtr != NULL || bLoopPtr != NULL) 
+	{
 		if (aLoopPtr != NULL && bLoopPtr != NULL)
 			product = carry + aLoopPtr->oneInteger + bLoopPtr->oneInteger;
 		else if (aLoopPtr != NULL && bLoopPtr == NULL)
@@ -103,12 +114,14 @@ listInteger addList(listInteger a, listInteger b) {
 }
 
 
-void displayList(listInteger listInt) {
+void displayList(listInteger listInt) 
+{
 	if (listInt == NULL)
 		return;
 
 	listNode* loopPtr = listInt;
-	while (loopPtr != NULL) {
+	while (loopPtr != NULL) 
+	{
 		cout << loopPtr->oneInteger;
 		loopPtr = loopPtr->next;
 	}
@@ -116,7 +129,8 @@ void displayList(listInteger listInt) {
 }
 
 
-int main() {
+int main() 
+{
 	listInteger aInteger = NULL;
 	listInteger bInteger = NULL;
 	listInteger sumInteger = NULL;
