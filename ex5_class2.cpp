@@ -4,9 +4,11 @@
 using namespace std;
 
 
-class studentCollection {
+class studentCollection 
+{
 private:
-    struct studentNode {
+    struct studentNode 
+    {
         studentRecord studentData;
         studentNode* next;
     };
@@ -26,47 +28,58 @@ private:
     studentList copiedList(const studentList original);
 };
 
-studentCollection::studentCollection() {
+studentCollection::studentCollection() 
+{
     _listHead = NULL;
 }
 
-studentCollection::studentCollection(const studentCollection& original) {
+studentCollection::studentCollection(const studentCollection& original) 
+{
     _listHead = copiedList(original._listHead);
 }
 
-studentCollection::~studentCollection() {
+studentCollection::~studentCollection() 
+{
     deleteList(_listHead);
 }
 
-void studentCollection::addRecord(studentRecord newStudent) {
+void studentCollection::addRecord(studentRecord newStudent) 
+{
     studentNode* newNode = new studentNode;
     newNode->studentData = newStudent;
     newNode->next = _listHead;
     _listHead = newNode;
 }
 
-studentRecord studentCollection::recordWithNumber(int idNum) {
+studentRecord studentCollection::recordWithNumber(int idNum) 
+{
     studentNode* loopPtr = _listHead;
     while (loopPtr != NULL && loopPtr->studentData.studentID() != idNum)
         loopPtr = loopPtr->next;
 
-    if (loopPtr == NULL) {
+    if (loopPtr == NULL) 
+    {
         studentRecord dummyRecord(-1, -1, "");
         return dummyRecord;
-    } else {
+    } 
+    else 
+    {
         return loopPtr->studentData;
     }
 }
 
-void studentCollection::removeRecord(int idNum) {
+void studentCollection::removeRecord(int idNum) 
+{
     studentNode* loopPtr = _listHead;
     studentNode* trailing = NULL;
-    while (loopPtr != NULL && loopPtr->studentData.studentID() != idNum) {
+    while (loopPtr != NULL && loopPtr->studentData.studentID() != idNum) 
+    {
         trailing = loopPtr;
         loopPtr = loopPtr->next;
     }
     if (loopPtr == NULL)
         return;
+    
     if (trailing == NULL)
         _listHead = _listHead->next;
     else
@@ -75,17 +88,21 @@ void studentCollection::removeRecord(int idNum) {
     delete loopPtr;
 }
 
-void studentCollection::deleteList(studentList& listPtr) {
-    while (listPtr != NULL) {
+void studentCollection::deleteList(studentList& listPtr) 
+{
+    while (listPtr != NULL) 
+    {
         studentNode* temp = listPtr;
         listPtr = listPtr->next;
         delete temp;
     }
 }
 
-void studentCollection::printRecords() {
+void studentCollection::printRecords() 
+{
     studentNode* loopPtr = _listHead;
-    while (loopPtr != NULL) {
+    while (loopPtr != NULL) 
+    {
         cout << loopPtr->studentData.studentID() << "\t";
         cout << loopPtr->studentData.name() << "\t";
         cout << loopPtr->studentData.grade() << "\t";
@@ -93,7 +110,8 @@ void studentCollection::printRecords() {
     }
 }
 
-studentCollection::studentList studentCollection::copiedList(const studentList original) {
+studentCollection::studentList studentCollection::copiedList(const studentList original) 
+{
     if (original == NULL)
         return NULL;
 
@@ -101,7 +119,8 @@ studentCollection::studentList studentCollection::copiedList(const studentList o
     newList->studentData = original->studentData;
     studentNode* oldLoopPtr = original->next;
     studentNode* newLoopPtr = newList;
-    while (oldLoopPtr != NULL) {
+    while (oldLoopPtr != NULL) 
+    {
         newLoopPtr->next = new studentNode;
         newLoopPtr = newLoopPtr->next;
         newLoopPtr->studentData = oldLoopPtr->studentData;
@@ -111,15 +130,18 @@ studentCollection::studentList studentCollection::copiedList(const studentList o
     return newList;
 }
 
-studentCollection& studentCollection::operator=(const studentCollection& rhs) {
-    if (this != &rhs) {
+studentCollection& studentCollection::operator=(const studentCollection& rhs) 
+{
+    if (this != &rhs) 
+    {
         deleteList(_listHead);
         _listHead = copiedList(rhs._listHead);
     }
     return *this;
 }
 
-int main() {
+int main() 
+{
     studentCollection s1, s2;
 
 
