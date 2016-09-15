@@ -22,7 +22,8 @@ void display(vector<int>&, string);
 void initializeVector(vector<int>&);
 
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) 
+{
     vector<int> factorialTarget;
     vector<int> factorialMinusOne;
     vector<int> tempAddedNumbers;
@@ -38,10 +39,12 @@ int main(int argc, const char * argv[]) {
 }
 
 
-void multiFactorial(vector<int>& p_factorialTarget, vector<int>& p_tempAddedNumbers, int number) {
+void multiFactorial(vector<int>& p_factorialTarget, vector<int>& p_tempAddedNumbers, int number) 
+{
     int i = 0, carry = 0, product = 0, remainder = 0;
     
-    while (i < p_factorialTarget.size()) {
+    while (i < p_factorialTarget.size()) 
+    {
         product = carry + (p_factorialTarget[i] * number);
         carry = product / 10;
         remainder = product % 10;
@@ -54,13 +57,16 @@ void multiFactorial(vector<int>& p_factorialTarget, vector<int>& p_tempAddedNumb
 }
 
 
-void computeFactorial(vector<int>& p_factorialTarget, vector<int>& p_factorialMinusOne, vector<int>& p_tempAddedNumbers, int number) {
+void computeFactorial(vector<int>& p_factorialTarget, vector<int>& p_factorialMinusOne, vector<int>& p_tempAddedNumbers, int number) 
+{
     int dividend = 0, remainder = 0;
     
-    for (int i = number; i > 0; i--) {
+    for (int i = number; i > 0; i--) 
+    {
         dividend = i;
         int pos = 0;
-        while (dividend != 0) {
+        while (dividend != 0) 
+        {
             remainder = dividend % 10;
             dividend = dividend / 10;
             multiFactorial(p_factorialTarget, p_tempAddedNumbers, remainder);
@@ -78,21 +84,25 @@ void computeFactorial(vector<int>& p_factorialTarget, vector<int>& p_factorialMi
 }
 
 
-void addVector(vector<int>& p_factorialMinusOne, vector<int>& p_tempAddedNumbers, int position) {
+void addVector(vector<int>& p_factorialMinusOne, vector<int>& p_tempAddedNumbers, int position) 
+{
     int carry = 0, product = 0, remainder = 0;
     
-    if (p_factorialMinusOne.size() == 0) {
+    if (p_factorialMinusOne.size() == 0) 
+    {
         p_factorialMinusOne = p_tempAddedNumbers;
         initializeVector(p_factorialMinusOne);
     }
     int diff = p_tempAddedNumbers.size() - p_factorialMinusOne.size() + position;
     int j = diff;
-    while (j > 0) {
+    while (j > 0) 
+    {
         p_factorialMinusOne.push_back(0);
         j--;
     }
     
-    for (int i = 0; i < p_tempAddedNumbers.size(); i++) {
+    for (int i = 0; i < p_tempAddedNumbers.size(); i++) 
+    {
         product = carry + p_tempAddedNumbers[i] + p_factorialMinusOne[i + position];
         carry = product / 10;
         remainder = product % 10;
@@ -107,7 +117,8 @@ void addVector(vector<int>& p_factorialMinusOne, vector<int>& p_tempAddedNumbers
 }
 
 
-int acceptInput() {
+int acceptInput() 
+{
     int factorialNumber;
     
     cout << "Enter a factorial number :";
@@ -118,10 +129,12 @@ int acceptInput() {
 }
 
 
-void pushDigitIntoVector(vector<int>& p_vectorNumber, int number) {
+void pushDigitIntoVector(vector<int>& p_vectorNumber, int number) 
+{
     int dividend = number, remainder = 0;
     
-    while (dividend != 0) {
+    while (dividend != 0) 
+    {
         remainder = dividend % 10;
         dividend = dividend / 10;
         p_vectorNumber.push_back(remainder);
@@ -129,7 +142,8 @@ void pushDigitIntoVector(vector<int>& p_vectorNumber, int number) {
 }
 
 
-void displayOutput(vector<int>& p_arr) {
+void displayOutput(vector<int>& p_arr) 
+{
     cout << "### display of vector ###" << endl;
     reverse(p_arr.begin(), p_arr.end());
     for (int i = 0; i < p_arr.size(); i++)
@@ -138,7 +152,8 @@ void displayOutput(vector<int>& p_arr) {
     cout << endl;
 }
 
-void display(vector<int>& p_arr, const string label) {
+void display(vector<int>& p_arr, const string label) 
+{
     cout << "### display of vector reverse ###" << label << endl;
     //reverse(p_arr.begin(), p_arr.end());
     for (int i = 0; i < p_arr.size(); i++)
@@ -147,7 +162,8 @@ void display(vector<int>& p_arr, const string label) {
     cout << endl;
 }
 
-void initializeVector(vector<int>& p_arr) {
+void initializeVector(vector<int>& p_arr) 
+{
     for (int i = 0; i < p_arr.size(); i++)
         p_arr[i] = 0;
 }
