@@ -7,12 +7,14 @@ using namespace std;
 typedef char * arrayString;
 
 
-char characterAt(arrayString s, int position) {
+char characterAt(arrayString s, int position) 
+{
 	return s[position];
 }
 
 
-int length(arrayString s) {
+int length(arrayString s) 
+{
 	int count = 0;
 
 	while (s[count] != 0)
@@ -22,7 +24,8 @@ int length(arrayString s) {
 }
 
 
-void append(arrayString& s, char c) {
+void append(arrayString& s, char c) 
+{
 	int oldLength = length(s);
 
 	arrayString newS = new char[oldLength + 2];
@@ -35,7 +38,8 @@ void append(arrayString& s, char c) {
 	s = newS;
 }
 
-void concatenate(arrayString& s1, arrayString s2) {
+void concatenate(arrayString& s1, arrayString s2) 
+{
 	int s1_OldLength = length(s1);
 	int s2_Length = length(s2);
 	int s1_NewLength = s1_OldLength + s2_Length;
@@ -54,7 +58,8 @@ void concatenate(arrayString& s1, arrayString s2) {
 }
 
 
-int main() {
+int main() 
+{
 	arrayString a = new char[5];
 	a[0] = 't'; a[1] = 'e'; a[2] = 's'; a[3] = 't'; a[4] = 0;
 	arrayString c = new char[2];
