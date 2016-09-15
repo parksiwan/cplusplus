@@ -5,7 +5,8 @@ using namespace std;
 typedef char * arrayString;
 
 
-arrayString subString(arrayString s1, int startPoint, int length) {
+arrayString subString(arrayString s1, int startPoint, int length) 
+{
 	arrayString newS = new char[length + 1];
 
 	for (int i = 0; i < length; i++)
@@ -16,7 +17,8 @@ arrayString subString(arrayString s1, int startPoint, int length) {
 }
 
 
-int main() {
+int main() 
+{
 	arrayString a = new char[5];
 	a[0] = 't'; a[1] = 'e'; a[2] = 's'; a[3] = 't'; a[4] = 0;
 
