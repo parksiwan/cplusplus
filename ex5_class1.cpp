@@ -2,15 +2,13 @@
 #include <string>
 using namespace std;
 
-struct student 
-{
+struct student {
 	int grade;
 	int studentID;
 	string name;
 };
 
-class studentRecord 
-{
+class studentRecord {
 public:
 	studentRecord();
 	studentRecord(int newGrade, int newID, string newName);
@@ -28,61 +26,51 @@ private:
 	string _name;
 };
 
-bool studentRecord::isValidGrade(int grade) 
-{
+bool studentRecord::isValidGrade(int grade) {
 	if ((grade >= 0) && (grade <= 100))
 		return true;
 	else
 		return false;
 }
 
-int studentRecord::studentID() 
-{
+int studentRecord::studentID() {
 	return _studentID;
 }
 
-int studentRecord::grade() 
-{
+int studentRecord::grade() {
 	return _grade;
 }
 
-string studentRecord::name() 
-{
+string studentRecord::name() {
 	return _name;
 }
 
-void studentRecord::setGrade(int newGrade) 
-{
+void studentRecord::setGrade(int newGrade) {
 	if (isValidGrade(newGrade))
 		_grade = newGrade;
 }
 
-void studentRecord::setStudentID(int newID) 
-{
+void studentRecord::setStudentID(int newID) {
 	_studentID = newID;
 }
 
-void studentRecord::setName(string newName) 
-{
+void studentRecord::setName(string newName) {
 	_name = newName;
 }
 
-studentRecord::studentRecord(int newGrade, int newID, string newName) 
-{
+studentRecord::studentRecord(int newGrade, int newID, string newName) {
 	setGrade(newGrade);
 	setStudentID(newID);
 	setName(newName);
 }
 
-studentRecord::studentRecord() 
-{
+studentRecord::studentRecord() {
 	setGrade(0);
 	setStudentID(-1);
 	setName("");
 }
 
-string studentRecord::letterGrade() 
-{
+string studentRecord::letterGrade() {
 	if (!isValidGrade(_grade))
 		return "ERROR";
 
@@ -96,8 +84,7 @@ string studentRecord::letterGrade()
 	return GRADE_LETTER[category - 1];
 }
 
-int main() 
-{
+int main() {
 	studentRecord a(23, 1001, "tom");
 
 	cout << a.grade() << endl;
